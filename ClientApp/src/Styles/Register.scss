@@ -1,0 +1,12 @@
+$SubmitBtn: green;
+$Box_Shadow: 1px 0px 16px -1px rgba(20,94,10,1);
+
+.container.form.register {
+    width: 350px;
+    height: 450px;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-top: 25px;
+    background-color: white; 
+    box-shadow: $Box_Shadow;
+}

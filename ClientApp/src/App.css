@@ -1,0 +1,16 @@
+html, body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: #588c7e;
+}
+
+button {
+  outline: none !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+/*# sourceMappingURL=App.css.map */

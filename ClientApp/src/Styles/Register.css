@@ -1,0 +1,11 @@
+.container.form.register {
+  width: 350px;
+  height: 450px;
+  border: 1px solid green;
+  border-radius: 5px;
+  margin-top: 25px;
+  background-color: white;
+  -webkit-box-shadow: 1px 0px 16px -1px #145e0a;
+          box-shadow: 1px 0px 16px -1px #145e0a;
+}
+/*# sourceMappingURL=Register.css.map */

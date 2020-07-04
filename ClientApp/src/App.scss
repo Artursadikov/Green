@@ -1,0 +1,16 @@
+$body_color: #588c7e;
+
+html, body {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: $body_color;
+}
+
+button {
+    outline: none !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}

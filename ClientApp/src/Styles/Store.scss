@@ -1,0 +1,138 @@
+$category_bg_color: #5b9aa0;
+$categoryLi_bg_color: white;
+$categoryLi_Hover_color: #f2e394;
+
+.storeDivContainer {
+    width: 100%;
+    height: 95vh;
+
+    .containerBody {
+        background-color: white;
+        width: 90%;
+        height: 90vh;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+        .row {
+            .category {
+                border-right: 2px solid green;
+                width: 21%;
+                height: 90vh;
+                transition: all 0.3s;
+                background-color: $category_bg_color;
+
+                .categoryUl {
+                    width: 100%;
+                    height: 50vh;
+                    list-style: none;
+                    margin: 35px 0 0 0;
+                    padding: 0;
+
+                    .categoryLi {
+                        width: 100%;
+                        height: 10vh;
+                        margin-top: 1px;
+                        margin-bottom: 1px;
+                        text-align: center;
+                        border-bottom: 1px solid green;
+                        border-top: 1px solid green;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $categoryLi_bg_color;
+
+                        &:hover {
+                            background-color: $categoryLi_Hover_color;
+                            font-size: 25px;
+                            font-weight: border;
+                            transition: all 0.2s;
+                        }
+                    }
+                }
+            }
+
+            .category2 {
+                border-right: 2px solid green;
+                width: 0;
+                height: 90vh;
+                transition: all 0.3s;
+
+                .categoryUl2 {
+                    display: none;
+                }
+            }
+            .grocery {
+                width: 79%;
+                height: 90vh;
+                position: relative;
+                overflow-y: auto;
+                }
+
+               
+            }
+        }
+        
+}
+.grocery2 {
+    width: 99%;
+    height: 90vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+.row.pr-box {
+    width: 85%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.addToCartBtn{
+    width: 30px;
+    height: 180px;
+    position: absolute;
+    top: 320px;
+    left: 0;
+    color: white;
+    background-color: red;
+    border: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    span {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        letter-spacing: 3px;
+        font-size: 10px;
+        font-weight: bolder;
+    }
+}
+
+.openCategoryBtn {
+    width: 30px;
+    height: 150px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    color: white;
+    background-color: green;
+    border: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    &:hover {
+        background-color: white;
+        color: green;
+        border-right: 2px solid green;
+        transition: all 0.3s ease-in;
+    }
+    span {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        letter-spacing: 3px;
+        font-size: 10px;
+        font-weight: bolder;
+    }
+}
