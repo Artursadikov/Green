@@ -1,0 +1,38 @@
+.container.Admin {
+    height: 95vh;
+    width: 100%;
+    border: 1px solid green;
+    border-radius: 10px;
+    background-color: white;
+    padding-top: 25px;
+    margin-top: 25px;
+
+    input,
+    select {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    label {
+        display: block;
+        text-align: center;
+    }
+
+    .AdminHeader {
+        text-align: center;
+        color: darkgreen;
+    }
+
+    .AdminSubmitBtn {
+        display: block;
+        width: 150px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid green;
+        background-color: transparent;
+        border-radius: 5px;
+    }
+}

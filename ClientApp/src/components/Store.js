@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import '../Styles/Store.css';
 
 
@@ -12,6 +14,10 @@ class Store extends Component {
 
     categoryBtn = () => {
         this.setState({ openSidebar: !this.state.openSidebar })
+    }
+
+    goToCart=() => {
+        //go to cart
     }
 
 
@@ -47,6 +53,9 @@ class Store extends Component {
                             </div>
                             <button onClick={this.categoryBtn} className='openCategoryBtn'><span>CATEGORY</span></button>
                             <button className='addToCartBtn'><span>ADD TO CART</span></button>
+                            <div className='cartWrapper'>
+                                 <FontAwesomeIcon onClick={this.goToCart} icon={faMoneyBill} className="CartBtn" />  
+                            </div>
                         </div>
                     </div>
                 </div>

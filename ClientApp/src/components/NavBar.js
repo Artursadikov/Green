@@ -18,10 +18,13 @@ export default class NavBar extends Component {
                         <NavLink className="nav-link" activeClassName="selected" to="/register">Register</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/">Login</NavLink>
+                        <NavLink className="nav-link" activeClassName="selected" to="/login">Login</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/">LogOut</NavLink>
+                        <NavLink className="nav-link" activeClassName="selected" to="/logout">LogOut</NavLink>
+                        </li>
+                        <li className="nav-item">
+                        <NavLink className="nav-link" activeClassName="selected" to="/admin">Admin</NavLink>
                         </li>
                     </ul>
                 </div>

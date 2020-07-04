@@ -14,6 +14,12 @@ class Product extends Component {
         this.setState({ counter: e.target.value });
     }
 
+    PriceValHandler=(e)=>{
+
+        // get price from DB
+        this.setState({ pricePerProduct: e.target.value });
+    }
+
     addCounter = () => {
         this.setState(prevState => ({ counter: prevState.counter + 1 }))
     }
@@ -34,7 +40,7 @@ class Product extends Component {
                     imp palaceholder
                  </div>
                 <div className='description'>
-                    <input value={this.state.pricePerProduct} type='text' palaceholder="price: 0$" className='input_price' />
+                    <input value={this.state.pricePerProduct} onChange={(e)=>this.PriceValHandler(e)} type='text' palaceholder="price: 0$" className='input_price' />
                 </div>
 
                 <div className='itemsBtn'>
