@@ -1,4 +1,5 @@
 using Green.Context;
+using Green.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,7 +25,7 @@ namespace Green
         {
 
             services.AddControllersWithViews();
-
+            services.AddScoped<IProduct, ProductsService>();
              services.AddDbContext<Greencontext>
             (opt => opt.UseSqlServer(Configuration["Data:PostAPIConnection:ConnectionString"]));
 
@@ -49,7 +50,7 @@ namespace Green
                 app.UseHsts();
             }
 
-          
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
