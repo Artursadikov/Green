@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Green.Context;
@@ -16,14 +17,51 @@ namespace Green.Services
 
         }
 
-        public Task<SResponse<List<Product>>> AddNewProduct(Product newProduct)
+        public async Task<SResponse<List<Product>>> AddNewProduct(Product newProduct)
         {
-            throw new System.NotImplementedException();
+            SResponse<List<Product>> serviceResponse = new SResponse<List<Product>>();
+
+            List<Product> dbProduct = await _greencontext.Products.ToListAsync();
+
+
+            //  newProduct.User = await_greencontext.Products.FindAsync(newProduct.User.Id);
+
+            await _greencontext.Products.AddAsync(newProduct);
+            await _greencontext.SaveChangesAsync();
+            serviceResponse.Data = dbProduct;
+            return serviceResponse;
         }
 
-        public Task<SResponse<List<Product>>> DeleteProduct(int id)
+        public async Task<SResponse<List<Product>>> DeleteProduct(int id)
         {
-            throw new System.NotImplementedException();
+            SResponse<List<Product>> serviceResponse = new SResponse<List<Product>>();
+            try
+            {
+                // Product product = await _greencontext.Products.Include(c => c.comments).FirstOrDefaultAsync(c => c.Id == id);
+                Product product = await _greencontext.Products.FirstOrDefaultAsync(p => p.id == id);
+
+                if (product != null)
+                {
+                    _greencontext.Products.Remove(product);
+                    await _greencontext.SaveChangesAsync();
+
+                    List<Product> dbProduct = await _greencontext.Products.ToListAsync();
+                    serviceResponse.Data = dbProduct;
+                }
+                else
+                {
+                    serviceResponse.Sucsses = false;
+                    serviceResponse.Message = "Product not found!";
+                }
+            }
+
+            catch (Exception ex)
+            {
+                serviceResponse.Sucsses = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
         }
 
         public async Task<SResponse<List<Product>>> GetAllProducts()
@@ -35,14 +73,47 @@ namespace Green.Services
             return serviceResponse;
         }
 
-        public Task<SResponse<Product>> GetProductById(int id)
+        public async Task<SResponse<Product>> GetProductById(int id)
         {
-            throw new System.NotImplementedException();
+            SResponse<Product> serviceResponse = new SResponse<Product>();
+            Product dbProduct = await _greencontext.Products.FirstOrDefaultAsync(c => c.id == id);
+            serviceResponse.Data = dbProduct;
+            return serviceResponse;
         }
 
-        public Task<SResponse<Product>> UpdateProduct(Product UpdateProduct, int id)
+        public async Task<SResponse<Product>> UpdateProduct(Product UpdateProduct, int id)
         {
-            throw new System.NotImplementedException();
+            SResponse<Product> serviceResponse = new SResponse<Product>();
+            try
+            {
+                Product product = await _greencontext.Products.FirstOrDefaultAsync(p => p.id == UpdateProduct.id);
+
+                product.productName = UpdateProduct.productName;
+                product.category = UpdateProduct.category;
+                product.imagePthUrl = UpdateProduct.imagePthUrl;
+                product.description = UpdateProduct.description;
+                product.price = UpdateProduct.price;
+
+
+                _greencontext.Products.Update(product);
+                await _greencontext.SaveChangesAsync();
+
+                serviceResponse.Data = product;
+
+
+            }
+
+            catch (Exception ex)
+            {
+                serviceResponse.Sucsses = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
         }
+
+        
+
+
     }
 }
