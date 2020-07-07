@@ -4,14 +4,16 @@ using Green.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Green.Migrations
 {
     [DbContext(typeof(Greencontext))]
-    partial class GreencontextModelSnapshot : ModelSnapshot
+    [Migration("20200707061031_float to price")]
+    partial class floattoprice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,11 +55,8 @@ namespace Green.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Categoryid")
+                    b.Property<int?>("categoryid")
                         .HasColumnType("int");
-
-                    b.Property<string>("category")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
@@ -73,16 +72,16 @@ namespace Green.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Categoryid");
+                    b.HasIndex("categoryid");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Green.Models.Product", b =>
                 {
-                    b.HasOne("Green.Models.Category", null)
+                    b.HasOne("Green.Models.Category", "category")
                         .WithMany("products")
-                        .HasForeignKey("Categoryid");
+                        .HasForeignKey("categoryid");
                 });
 #pragma warning restore 612, 618
         }

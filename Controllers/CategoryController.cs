@@ -1,56 +1,52 @@
-
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Green.Context;
 using Green.Models;
 using Green.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Green.Controllers
 {
 
+
+
     // [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+    public class CategoryController : ControllerBase
     {
 
+        private readonly ICategory _category;
 
-        private readonly IProduct productService;
-
-        public ProductsController(IProduct productService)
+        public CategoryController(ICategory category)
         {
-            this.productService = productService;
-
+            _category = category;
 
         }
+
 
 
         [AllowAnonymous]
         [HttpGet("all")]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await productService.GetAllProducts());
+            return Ok(await _category.GetAllCategories());
         }
 
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> AddNewProduct(Product newProduct)
+        public async Task<IActionResult> AddNewProduct(Category newCategory)
         {
-            return Ok(await productService.AddNewProduct(newProduct));
+            return Ok(await _category.AddNewCategory(newCategory));
         }
 
         [AllowAnonymous]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProd(Product UpdateProduct, int id)
+        public async Task<IActionResult> UpdateCat(Category UpdateCategory, int id)
         {
 
-            SResponse<Product> serviceResponse = await productService.UpdateProduct(UpdateProduct, id);
+            SResponse<Category> serviceResponse = await _category.UpdateCategory(UpdateCategory, id);
 
             if (serviceResponse.Data == null)
             {
@@ -66,7 +62,7 @@ namespace Green.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            SResponse<List<Product>> serviceResponse = await productService.DeleteProduct(id);
+            SResponse<List<Category>> serviceResponse = await _category.DeleteCategory(id);
 
             if (serviceResponse.Data == null)
             {
@@ -78,10 +74,9 @@ namespace Green.Controllers
 
         [AllowAnonymous]
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductById(int id)
+        public async Task<IActionResult> GetPCategoryById(int id)
         {
-            return Ok(await productService.GetProductById(id));
+            return Ok(await _category.GetCategoryById(id));
         }
-
     }
 }

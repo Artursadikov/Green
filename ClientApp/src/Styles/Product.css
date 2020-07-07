@@ -76,4 +76,24 @@
   font-size: 20px;
   font-weight: bolder;
 }
+
+.addProductToCart {
+  border: none;
+  width: 40px;
+  height: 35px;
+  background-color: orangered;
+  color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 10px;
+}
+
+.addProductToCart:hover {
+  background-color: white;
+  color: orangered;
+  border: 2px solid orangered;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
 /*# sourceMappingURL=Product.css.map */

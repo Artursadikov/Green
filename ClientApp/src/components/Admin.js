@@ -1,44 +1,67 @@
 import React, { Component } from 'react';
+import AddNewProduct from './AddNewProduct';
+import ManageUser from './ManageUser';
+import UpdateProduct from './UpdateProduct';
+
 import '../Styles/Admin.css';
 
 
 
 export default class Admin extends Component {
-    render() {
-        return (
-            <form className="container Admin">
-                <h2 className="AdminHeader">Admin (add prodoct to shop)/(manage user)</h2>
-                <div className="form-group ">
-                    <div className="form-group">
-                        <label>Category list:</label>
-                        <select className="form-control">
-                            <option>Fruit</option>
-                            <option>Vegetables</option>
-                            <option>Bread</option>
-                            <option>Meat</option>
-                            <option>Fish</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="form-group ">
-                    <label>Product name</label>
-                    <input type="text" className="form-control"  />
-                </div>
-                <div className="form-group ">
-                    <label >Price</label>
-                    <input type="text" className="form-control"  />
-                </div>
-                <div className="form-group ">
-                    <label >Description</label>
-                    <input type="text" className="form-control"  />
-                </div>
-                <div className="form-group ">
-                    <label >Image path</label>
-                    <input type="text" className="form-control"  />
-                </div>
-                <button type="button" className="AdminSubmitBtn">Submit</button>
-            </form>
 
-        )
+    state = {
+        status: ''
     }
-}
+
+
+
+    newProductComponent = () => {
+        this.setState({
+            status: "newProduct"
+        })
+
+    }
+    updateProductComponent = () => {
+        this.setState({
+            status: "updateProduct"
+        })
+
+    }
+    manageUserComponent = () => {
+        this.setState({
+            status: "manageUser"
+        })
+
+    }
+
+    loadComponent = () => {
+        let componentToLoad = this.state.status;
+
+        if (componentToLoad === "newProduct") {
+            return <AddNewProduct />
+        } else if (componentToLoad === "updateProduct") {
+            return <UpdateProduct />
+        } else if (componentToLoad === "manageUser") {
+            return <ManageUser />
+        } else {
+            return <AddNewProduct />
+        }
+
+    }
+        render() {
+
+
+
+            return (
+                <div>
+                    <div className="manageBtnDiv">
+                        <button onClick={this.newProductComponent} className="manageAdminBtns">Add New a Product</button>
+                        <button onClick={this.updateProductComponent} className="manageAdminBtns">Update Product</button>
+                        <button onClick={this.manageUserComponent} className="manageAdminBtns">Manage Users</button>
+                    </div>
+                    {this.loadComponent()}
+                </div>
+
+            )
+        }
+    }

@@ -10,6 +10,6 @@ namespace Green.Models
         public string bread { get; set; }
         public string meat { get; set; }
         public string fish { get; set; }
-        public List<Product> products { get; set; }
+       // public List<Product> products { get; set; }
     }
 }

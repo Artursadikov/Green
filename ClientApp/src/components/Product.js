@@ -37,6 +37,7 @@ class Product extends Component {
         return (
             <div className='product-Box'>
                 <div className='row img'>
+                <button className="addProductToCart">Add</button>
                     imp palaceholder
                  </div>
                 <div className='description'>

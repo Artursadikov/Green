@@ -25,9 +25,10 @@ namespace Green
         {
 
             services.AddControllersWithViews();
+         
             services.AddScoped<IProduct, ProductsService>();
-             services.AddDbContext<Greencontext>
-            (opt => opt.UseSqlServer(Configuration["Data:PostAPIConnection:ConnectionString"]));
+            services.AddDbContext<Greencontext>
+           (opt => opt.UseSqlServer(Configuration["Data:PostAPIConnection:ConnectionString"]));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
