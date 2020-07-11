@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Product from './Product';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 import '../Styles/Store.css';
 
 
@@ -9,22 +8,40 @@ import '../Styles/Store.css';
 class Store extends Component {
 
     state = {
-        openSidebar: true
+        openSidebar: true,
+        data: []
     }
 
     categoryBtn = () => {
         this.setState({ openSidebar: !this.state.openSidebar })
     }
 
-    goToCart=() => {
-        //go to cart
-    }
+    componentDidMount() {
 
+        axios.get(`api/Products/all`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+
+    }
 
     render() {
 
         let sidebar = this.state.openSidebar;
+        let products = this.state.data;
 
+        let AllProducts = products.map(prod => {
+            return (<Product
+                key={prod.id}
+                description={prod.description}
+                image={prod.imagePthUrl}
+                price={prod.price}
+                productName={prod.productName}
+                category={prod.category}
+            />)
+        })
+        console.log(products)
 
         return (
             <div className="storeDivContainer">
@@ -41,21 +58,14 @@ class Store extends Component {
                         </div>
                         <div className={sidebar ? 'grocery2' : 'grocery'}>
                             <div className='row pr-box'>
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
-                                <Product />
+                                {
+                                    products.length <= 0 ?
+                                        <h1>No Products Found!</h1>
+                                        :
+                                        AllProducts
+                                }
                             </div>
                             <button onClick={this.categoryBtn} className='openCategoryBtn'><span>CATEGORY</span></button>
-                            <button className='addToCartBtn'><span>ADD TO CART</span></button>
-                            <div className='cartWrapper'>
-                                 <FontAwesomeIcon onClick={this.goToCart} icon={faMoneyBill} className="CartBtn" />  
-                            </div>
                         </div>
                     </div>
                 </div>

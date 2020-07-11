@@ -1,0 +1,17 @@
+.cartBtn {
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    width: 125px;
+    height: 30px;
+    display: block;
+    float: left;
+    border-radius: 25px;
+    background-color:red;
+
+     &:hover {
+         background-color:white;
+         color: red;
+         transition: all 0.2s;
+     }
+}

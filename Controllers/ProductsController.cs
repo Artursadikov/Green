@@ -83,5 +83,12 @@ namespace Green.Controllers
             return Ok(await productService.GetProductById(id));
         }
 
+        [AllowAnonymous]
+        [HttpGet("category/{category}")]
+        public async Task<IActionResult> GetProductByCat(string category)
+        {
+            return Ok(await productService.GetProductByCategory(category));
+        }
+
     }
 }

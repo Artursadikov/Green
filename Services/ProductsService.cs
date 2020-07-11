@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Green.Context;
 using Green.Models;
@@ -81,6 +82,16 @@ namespace Green.Services
             return serviceResponse;
         }
 
+        public async Task<SResponse<List<Product>>> GetProductByCategory(string category)
+        {
+            SResponse<List<Product>> serviceResponse = new SResponse<List<Product>>();
+            List<Product> dbProduct = await _greencontext.Products.Where(c => c.category == category).ToListAsync();
+           
+            serviceResponse.Data = dbProduct;
+           
+            return serviceResponse;
+        }
+
         public async Task<SResponse<Product>> UpdateProduct(Product UpdateProduct, int id)
         {
             SResponse<Product> serviceResponse = new SResponse<Product>();
@@ -111,8 +122,6 @@ namespace Green.Services
 
             return serviceResponse;
         }
-
-        
 
 
     }

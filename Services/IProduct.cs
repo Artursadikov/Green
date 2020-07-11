@@ -11,6 +11,7 @@ namespace Green.Services
         Task<SResponse<List<Product>>> AddNewProduct(Product newProduct);
         Task<SResponse<Product>> UpdateProduct(Product UpdateProduct, int id);
         Task<SResponse<List<Product>>> DeleteProduct(int id);
+         Task<SResponse<List<Product>>> GetProductByCategory(string category);
 
     }
 }

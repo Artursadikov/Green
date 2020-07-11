@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../Styles/NavBar.css';
 
 export default class NavBar extends Component {
     render() {
@@ -12,22 +13,23 @@ export default class NavBar extends Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                        <NavLink className="nav-link" activeClassName="selected" to="/Store">Store</NavLink>
+                            <NavLink className="nav-link" activeClassName="selected" to="/Store">Store</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/register">Register</NavLink>
+                            <NavLink className="nav-link" activeClassName="selected" to="/register">Register</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/login">Login</NavLink>
+                            <NavLink className="nav-link" activeClassName="selected" to="/">Login</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/logout">LogOut</NavLink>
+                            <NavLink className="nav-link" activeClassName="selected" to="/logout">LogOut</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="selected" to="/admin">Admin</NavLink>
+                            <NavLink className="nav-link" activeClassName="selected" to="/admin">Admin</NavLink>
                         </li>
                     </ul>
                 </div>
+                <button className="cartBtn" to="/cart">Cart</button>
             </nav>
         )
     }

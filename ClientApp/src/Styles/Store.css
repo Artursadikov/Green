@@ -92,30 +92,6 @@
   margin-right: auto;
 }
 
-.addToCartBtn {
-  width: 30px;
-  height: 180px;
-  position: absolute;
-  top: 320px;
-  left: 0;
-  color: white;
-  background-color: red;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  padding-top: 3px;
-}
-
-.addToCartBtn span {
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-  text-orientation: upright;
-  letter-spacing: 3px;
-  font-size: 10px;
-  font-weight: bolder;
-}
-
 .openCategoryBtn {
   width: 30px;
   height: 150px;
@@ -145,22 +121,5 @@
   letter-spacing: 3px;
   font-size: 10px;
   font-weight: bolder;
-}
-
-.cartWrapper {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  height: 80px;
-  border-radius: 10000px;
-  background-color: orangered;
-  text-align: center;
-}
-
-.CartBtn {
-  margin-top: 17px;
-  font-size: 300%;
-  color: green;
 }
 /*# sourceMappingURL=Store.css.map */

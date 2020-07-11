@@ -1,0 +1,19 @@
+.cartBtn {
+  color: white;
+  border: 2px solid black;
+  font-weight: bold;
+  width: 125px;
+  height: 30px;
+  display: block;
+  float: left;
+  border-radius: 25px;
+  background-color: red;
+}
+
+.cartBtn:hover {
+  background-color: white;
+  color: red;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+/*# sourceMappingURL=NavBar.css.map */

@@ -3,7 +3,7 @@
     border: 2px solid darkgreen;
     border-radius: 3px;
     width: 300px;
-    height: 300px;
+    height: 350px;
 
     .row.img {
         margin: 0;
@@ -67,20 +67,30 @@
     font-weight: bolder;
 }
 .addProductToCart {
-    border: none;
-    width: 40px;
-    height: 35px;
-    background-color: orangered;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 10px;
     color: white;
-    position: relative;
-    top: 0;
-    left: 0;
-    border-bottom-right-radius: 10px;
-   
+    background-color:orangered;
+    border: 2px solid black;
+
     &:hover {
-        background-color: white;
-        color: orangered;
-        border: 2px solid orangered;
+        color: red;
+        font-weight: bolder;
+        background-color:white;
         transition: all 0.2s ease-out;
     }
+}
+.productNameP {
+    margin-bottom: 0;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    color: black;
+}
+.productDescP {
+    margin-bottom: 0;
+    overflow-y: auto;
+    text-align: center;
 }

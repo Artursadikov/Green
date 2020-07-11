@@ -6,19 +6,14 @@ import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 class Product extends Component {
 
     state = {
-        counter: 0,
-        pricePerProduct: 0 + "$"
+        counter: 0
     }
 
     getCounter = (e) => {
         this.setState({ counter: e.target.value });
     }
 
-    PriceValHandler=(e)=>{
 
-        // get price from DB
-        this.setState({ pricePerProduct: e.target.value });
-    }
 
     addCounter = () => {
         this.setState(prevState => ({ counter: prevState.counter + 1 }))
@@ -35,21 +30,25 @@ class Product extends Component {
 
 
         return (
+
             <div className='product-Box'>
+                <p className="productNameP">{this.props.productName}</p>
                 <div className='row img'>
-                <button className="addProductToCart">Add</button>
-                    imp palaceholder
+                   {this.props.image}
                  </div>
                 <div className='description'>
-                    <input value={this.state.pricePerProduct} onChange={(e)=>this.PriceValHandler(e)} type='text' palaceholder="price: 0$" className='input_price' />
+                    <h2>{this.props.price * this.state.counter}$</h2>
+                    <p className="productDescP">{this.props.description}</p>
                 </div>
 
                 <div className='itemsBtn'>
                     <FontAwesomeIcon onClick={this.addCounter} icon={faPlusCircle} className="add" />
                     <input value={this.state.counter} onChange={(e) => this.getCounter(e)} type="text" className="counter-items" />
                     <FontAwesomeIcon onClick={this.subtractCounter} icon={faMinusCircle} className="remove" />
+                    <button className="addProductToCart">Add</button>
                 </div>
             </div>
+
         );
     }
 }
