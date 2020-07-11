@@ -1,14 +1,87 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../Styles/UpdateProduct.css';
+import ProductListAdmin from './ProductListAdmin';
+import Modal from "../Modal/Modal";
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
-export default class UpdateProduct extends Component {
+class UpdateProduct extends Component {
+
+    state = {
+        data: [],
+        selectVal: 'Fruit',
+        showModal: false,
+        id: null
+    }
+
+
+    selectHandler = (e) => {
+        this.setState({
+            selectVal: e.target.value
+        })
+    }
+
+
+    getApiByCategory = () => {
+        let category = this.state.selectVal;
+
+        axios.get(`api/Products/category/${category}`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    deleteProdOpenModal = (id) => {
+        this.setState({
+            id: id,
+            showModal: !this.state.showModal
+        })
+    }
+    deleteProduct = () => {
+        let category = this.state.selectVal;
+        let id = this.state.id;
+        
+        axios.delete(`api/Products/${id}`).then(res => {
+            this.setState({
+                showModal: !this.state.showModal
+            })
+            axios.get(`api/Products/category/${category}`).then(res => {
+                this.setState({
+                    data: res.data.data
+                })
+            })
+        }).catch(err => console.log(err))
+    }
+
+    cancelDelProduct = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
     render() {
+
+        let products = this.state.data.map(prod => {
+            return (<ProductListAdmin
+                key={prod.id}
+                productId={prod.id}
+                productImg={prod.imagePthUrl}
+                productPrice={prod.price}
+                productName={prod.productName}
+                category={prod.category}
+                deleteProduct={(id) => this.deleteProdOpenModal(prod.id)}
+            />)
+        })
+
+
         return (
             <form className="container Admin">
-                <h2 className="AdminHeader">Admin (add prodoct to shop)</h2>
+                <h2 className="AdminHeader">Admin (Update Product)</h2>
                 <div className="form-group ">
                     <div className="form-group">
                         <label>Category list:</label>
-                        <select className="form-control">
+                        <select onChange={(e) => this.selectHandler(e)} value={this.state.selectVal} className="form-control">
                             <option>Fruit</option>
                             <option>Vegetables</option>
                             <option>Bread</option>
@@ -16,14 +89,22 @@ export default class UpdateProduct extends Component {
                             <option>Fish</option>
                         </select>
                     </div>
+                    <Modal show={this.state.showModal}>
+                        <div className="modalDelDealogBox">
+                            <h4>Are You Sure ?</h4>
+                            <button onClick={this.deleteProduct} type="button" className="del">Delete</button>
+                            <button onClick={this.cancelDelProduct} type="button" className="can">Cancel</button>
+                        </div>
+                    </Modal>
                 </div>
-                <button type="button" className="AdminSubmitBtn">Search</button>
+                <button onClick={this.getApiByCategory} type="button" className="AdminSubmitBtn">Search</button>
                 <div className="productListDiv">
                     <ul className="productUlAdnim">
-                        <li>product place holder</li>
+                        {products}
                     </ul>
                 </div>
             </form>
         )
     }
 }
+export default withRouter(UpdateProduct);

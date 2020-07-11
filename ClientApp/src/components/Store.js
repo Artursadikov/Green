@@ -26,6 +26,54 @@ class Store extends Component {
 
     }
 
+    filterByAll = () => {
+        axios.get(`api/Products/all`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    filterByFruit = () => {
+        axios.get(`api/Products/category/Fruit`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    filterByVegetables = () => {
+        axios.get(`api/Products/category/Vegetables`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    filterByBread = () => {
+        axios.get(`api/Products/category/Bread`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    filterByMeat = () => {
+        axios.get(`api/Products/category/Meat`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
+    filterByFish = () => {
+        axios.get(`api/Products/category/Fish`).then(res => {
+            this.setState({
+                data: res.data.data
+            })
+        })
+    }
+
     render() {
 
         let sidebar = this.state.openSidebar;
@@ -34,14 +82,15 @@ class Store extends Component {
         let AllProducts = products.map(prod => {
             return (<Product
                 key={prod.id}
-                description={prod.description}
+                Desc={prod.description}
                 image={prod.imagePthUrl}
                 price={prod.price}
                 productName={prod.productName}
                 category={prod.category}
+
             />)
         })
-        console.log(products)
+
 
         return (
             <div className="storeDivContainer">
@@ -49,11 +98,12 @@ class Store extends Component {
                     <div className="row">
                         <div className={sidebar ? 'category2' : 'category'}>
                             <ul className={sidebar ? 'categoryUl2 ' : 'categoryUl'}>
-                                <li className="categoryLi">Fruit</li>
-                                <li className="categoryLi">Vegetables</li>
-                                <li className="categoryLi">Bread</li>
-                                <li className="categoryLi">Meat</li>
-                                <li className="categoryLi">Fish</li>
+                                <li onClick={this.filterByAll} className="categoryLi">All Products</li>
+                                <li onClick={this.filterByFruit} className="categoryLi">Fruit</li>
+                                <li onClick={this.filterByVegetables} className="categoryLi">Vegetables</li>
+                                <li onClick={this.filterByBread} className="categoryLi">Bread</li>
+                                <li onClick={this.filterByMeat} className="categoryLi">Meat</li>
+                                <li onClick={this.filterByFish} className="categoryLi">Fish</li>
                             </ul>
                         </div>
                         <div className={sidebar ? 'grocery2' : 'grocery'}>

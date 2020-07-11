@@ -1,0 +1,35 @@
+.LiAdminProduct {
+  margin-top: 5px;
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+.LiAdminProduct P {
+  display: inline;
+  margin-right: 8px;
+}
+
+.LiAdminProduct P span {
+  font-weight: bolder;
+  font-size: 110%;
+}
+
+.prodDelete {
+  display: block;
+  float: right;
+  width: 70px;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
+.prodDelete:hover {
+  background-color: white;
+  color: red;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border: 1px solid red;
+  border-radius: 3px;
+}
+/*# sourceMappingURL=ProductListAdmin.css.map */

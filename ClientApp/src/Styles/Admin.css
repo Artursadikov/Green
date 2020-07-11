@@ -9,11 +9,16 @@
 }
 
 .container.Admin input,
-.container.Admin select {
-  width: 50%;
+.container.Admin select,
+.container.Admin textarea {
+  width: 70%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.container.Admin textarea {
+  resize: none;
 }
 
 .container.Admin label {

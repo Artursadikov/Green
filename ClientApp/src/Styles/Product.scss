@@ -72,25 +72,59 @@
     margin-right: 10px;
     border-radius: 10px;
     color: white;
-    background-color:orangered;
+    background-color: orangered;
     border: 2px solid black;
 
     &:hover {
         color: red;
         font-weight: bolder;
-        background-color:white;
+        background-color: white;
         transition: all 0.2s ease-out;
     }
 }
 .productNameP {
     margin-bottom: 0;
     text-align: center;
-    font-family: 'Bangers', cursive;
+    font-family: "Bangers", cursive;
     letter-spacing: 2px;
     color: black;
 }
-.productDescP {
-    margin-bottom: 0;
-    overflow-y: auto;
+
+.pricePerItem {
+    margin: 0;
     text-align: center;
+    color: green;
+    font-weight: bolder;
+}
+.descBtn {
+    display: block;
+    width: 200px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+
+    &:hover {
+        font-size: 120%;
+        letter-spacing: 5px;
+        color: red;
+        transition: all 0.5s ease-out;
+    }
+}
+.calculatedPrice {
+    margin: 0;
+}
+.decsriptionProd {
+    width: 96%;
+    height: auto;
+    padding: 5px;
+    font-weight: bolder;
+    text-align: center;
+    background-color: rgb(223, 221, 221);
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:5px;
+    box-shadow: inset 7px -5px 26px 0px rgba(0,0,0,0.75);
 }

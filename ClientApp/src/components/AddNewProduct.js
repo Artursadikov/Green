@@ -49,7 +49,7 @@ export default class AddNewProduct extends Component {
             price: parseFloat(this.state.priceVal),
             imagePthUrl: this.state.imagePathVal,
             category: this.state.seletCategoryVal
-         
+
         }).then(res => {
             this.setState({
                 prodNameVal: '',
@@ -86,11 +86,14 @@ export default class AddNewProduct extends Component {
                 </div>
                 <div className="form-group ">
                     <label >Price</label>
+                    {
+                        isNaN(this.state.priceVal) ? <small style={{textAlign: 'center', color: 'red', display: 'block'}}>Must be a number!</small>: null  
+                    }
                     <input value={this.state.priceVal} onChange={(e) => this.priceHandler(e)} type="text" className="form-control" />
                 </div>
                 <div className="form-group ">
-                    <label >Description</label>
-                    <input value={this.state.descriptionVal} onChange={(e) => this.descriptionHandler(e)} type="text" className="form-control" />
+                    <label >Description (Max 100 letters)</label>
+                    <textarea maxlength="100" rows="2" cols="3" value={this.state.descriptionVal} onChange={(e) => this.descriptionHandler(e)} type="text" className="form-control" />
                 </div>
                 <div className="form-group ">
                     <label >Image path</label>

@@ -27,9 +27,10 @@ export default class NavBar extends Component {
                         <li className="nav-item">
                             <NavLink className="nav-link" activeClassName="selected" to="/admin">Admin</NavLink>
                         </li>
+                        <button className="cartBtn" to="/cart">Cart</button>
                     </ul>
                 </div>
-                <button className="cartBtn" to="/cart">Cart</button>
+             
             </nav>
         )
     }

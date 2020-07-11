@@ -6,7 +6,9 @@ import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 class Product extends Component {
 
     state = {
-        counter: 0
+        counter: 0,
+        desc: this.props.Desc,
+        descArea: false
     }
 
     getCounter = (e) => {
@@ -26,19 +28,30 @@ class Product extends Component {
         }
     }
 
+    getDescription = () => {
+        this.setState({
+            descArea: !this.state.descArea
+        })
+    }
+
     render() {
 
-
+console.log(this.state.desc)
         return (
 
             <div className='product-Box'>
                 <p className="productNameP">{this.props.productName}</p>
                 <div className='row img'>
-                   {this.props.image}
-                 </div>
+                    {
+                        this.state.descArea ? <p className="decsriptionProd">{this.state.desc}</p> :
+                        this.props.image
+                    }
+                   
+                </div>
                 <div className='description'>
-                    <h2>{this.props.price * this.state.counter}$</h2>
-                    <p className="productDescP">{this.props.description}</p>
+                    <p className='pricePerItem'>{this.props.price}$ (per Item/Kg)</p>
+                    <h2 className='calculatedPrice'>{this.props.price * this.state.counter}$</h2>
+                    <button onClick={this.getDescription} type="button" className="descBtn">Description</button>
                 </div>
 
                 <div className='itemsBtn'>

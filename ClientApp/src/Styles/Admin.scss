@@ -8,11 +8,15 @@
     margin-top: 25px;
 
     input,
-    select {
-        width: 50%;
+    select,
+    textarea {
+        width: 70%;
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    textarea {
+        resize: none;
     }
 
     label {

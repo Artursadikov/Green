@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import AddNewProduct from './AddNewProduct';
 import ManageUser from './ManageUser';
 import UpdateProduct from './UpdateProduct';
-
+import { withRouter } from 'react-router-dom';
 import '../Styles/Admin.css';
 
 
 
-export default class Admin extends Component {
+ class Admin extends Component {
 
     state = {
         status: ''
@@ -65,3 +65,4 @@ export default class Admin extends Component {
             )
         }
     }
+    export default withRouter(Admin);

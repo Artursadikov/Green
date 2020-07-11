@@ -1,0 +1,32 @@
+.LiAdminProduct {
+    margin-top: 5px;
+    border: 1px solid grey;
+    padding: 5px;
+
+    P {
+        display: inline;
+        margin-right: 8px;
+
+        span {
+            font-weight: bolder;
+            font-size: 110%;
+        }
+    }
+}
+.prodDelete {
+    display: block;
+    float: right;
+    width: 70px;
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: red;
+        transition: all 0.2s;
+        border: 1px solid red;
+        border-radius: 3px;
+    }
+}
