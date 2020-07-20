@@ -1,7 +1,8 @@
 .product-Box {
-  margin: 20px;
+  margin: 10px 20px 0 20px;
   border: 2px solid darkgreen;
-  border-radius: 3px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 5px;
   width: 300px;
   height: 350px;
 }
@@ -78,21 +79,28 @@
 }
 
 .addProductToCart {
-  width: 50px;
+  width: 300px;
   height: 50px;
-  margin-right: 10px;
-  border-radius: 10px;
-  color: white;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: block;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 5px;
   background-color: orangered;
-  border: 2px solid black;
+  color: white;
 }
 
 .addProductToCart:hover {
-  color: red;
-  font-weight: bolder;
   background-color: white;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
+  border-bottom: 2px solid orangered;
+  border-right: 2px solid orangered;
+  border-left: 2px solid orangered;
+  color: orangered;
+  font-weight: bolder;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .productNameP {
@@ -139,11 +147,9 @@
   padding: 5px;
   font-weight: bolder;
   text-align: center;
-  background-color: #dfdddd;
+  background-color: rgba(255, 68, 0, 0.157);
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  -webkit-box-shadow: inset 7px -5px 26px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: inset 7px -5px 26px 0px rgba(0, 0, 0, 0.75);
 }
 /*# sourceMappingURL=Product.css.map */

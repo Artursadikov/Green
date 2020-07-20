@@ -11,8 +11,14 @@ class UpdateProduct extends Component {
         data: [],
         selectVal: 'Fruit',
         showModal: false,
-        id: null
+        id: null,
+        name: '',
+        price: 0,
+        imgPath: '',
+        error: null
+
     }
+
 
 
     selectHandler = (e) => {
@@ -21,6 +27,11 @@ class UpdateProduct extends Component {
         })
     }
 
+
+
+    nameHandler = (e) => { this.setState({ name: e.target.value }) }
+    priceHandler = (e) => { this.setState({ price: e.target.value }) }
+    imgPathHandler = (e) => { this.setState({ imgPath: e.target.value }) }
 
     getApiByCategory = () => {
         let category = this.state.selectVal;
@@ -38,10 +49,11 @@ class UpdateProduct extends Component {
             showModal: !this.state.showModal
         })
     }
+
     deleteProduct = () => {
         let category = this.state.selectVal;
         let id = this.state.id;
-        
+
         axios.delete(`api/Products/${id}`).then(res => {
             this.setState({
                 showModal: !this.state.showModal
@@ -60,6 +72,23 @@ class UpdateProduct extends Component {
         })
     }
 
+    okUpdate = (id, category, description) => {
+        axios.put(`api/Products/${id}`, {
+            id: id,
+            productName: this.state.name,
+            imagePthUrl: this.state.imgPath,
+            price: parseInt(this.state.price),
+            description: description,
+            category: category
+        }).then(() => {
+            this.props.history.push('/store');
+        }).catch(err => {
+            this.setState({ error: err })
+          
+        })
+    }
+
+
     render() {
 
         let products = this.state.data.map(prod => {
@@ -70,7 +99,14 @@ class UpdateProduct extends Component {
                 productPrice={prod.price}
                 productName={prod.productName}
                 category={prod.category}
+                description={prod.description}
+                okUpdate={(id, category, description) => this.okUpdate(prod.id, prod.category, prod.description)}
+                nameHandler={(e) => this.nameHandler(e)}
+                priceHandler={(e) => this.priceHandler(e)}
+                imgPathHandler={(e) => this.imgPathHandler(e)}
                 deleteProduct={(id) => this.deleteProdOpenModal(prod.id)}
+
+
             />)
         })
 

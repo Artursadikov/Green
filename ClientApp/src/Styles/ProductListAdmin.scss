@@ -12,6 +12,12 @@
             font-size: 110%;
         }
     }
+
+    input {
+        width: 50%;
+        display: block;
+        margin-bottom: 5px;
+    }
 }
 .prodDelete {
     display: block;
@@ -20,13 +26,31 @@
     background-color: red;
     border: none;
     border-radius: 3px;
-    color: white;
+    color: black;
 
     &:hover {
         background-color: white;
         color: red;
         transition: all 0.2s;
         border: 1px solid red;
+        border-radius: 3px;
+    }
+}
+.prodUpdate{
+    display: block;
+    float: right;
+    width: 70px;
+    background-color: yellow;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    margin-right: 5px;
+
+    &:hover {
+        background-color: white;
+        color: rgb(128, 128, 6);
+        transition: all 0.2s;
+        border: 1px solid yellow;
         border-radius: 3px;
     }
 }

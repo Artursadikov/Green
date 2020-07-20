@@ -14,6 +14,12 @@
   font-size: 110%;
 }
 
+.LiAdminProduct input {
+  width: 50%;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .prodDelete {
   display: block;
   float: right;
@@ -21,7 +27,7 @@
   background-color: red;
   border: none;
   border-radius: 3px;
-  color: white;
+  color: black;
 }
 
 .prodDelete:hover {
@@ -30,6 +36,26 @@
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   border: 1px solid red;
+  border-radius: 3px;
+}
+
+.prodUpdate {
+  display: block;
+  float: right;
+  width: 70px;
+  background-color: yellow;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  margin-right: 5px;
+}
+
+.prodUpdate:hover {
+  background-color: white;
+  color: #808006;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border: 1px solid yellow;
   border-radius: 3px;
 }
 /*# sourceMappingURL=ProductListAdmin.css.map */
